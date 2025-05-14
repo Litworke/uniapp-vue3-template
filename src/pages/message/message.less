@@ -1,0 +1,135 @@
+// 完整样式代码
+.psycho-test-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40rpx;
+    background: #f8fafc;
+    height: 100%;
+  
+    // 题目卡片
+    .question-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 0 0 24rpx 24rpx;
+      padding: 36rpx 32rpx;
+      box-shadow: 0 4rpx 24rpx rgba(0,0,0,0.06);
+      transition: all 0.2s ease;
+  
+      .question-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 28rpx;
+  
+        .question-type {
+            font-size: 28rpx;
+            font-weight: 500;
+            padding: 12rpx 24rpx;
+            border-radius: 8rpx;
+            background: linear-gradient(135deg, #d7f3fe, #cff6df);
+            color: #267574;
+            position: relative;
+        }
+  
+        .question-number {
+          font-size: 26rpx;
+          color: #64748b;
+          font-weight: 500;
+        }
+      }
+  
+      .question-content {
+        font-size: 32rpx;
+        color: #334155;
+        line-height: 1.6;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+    }
+  
+    // 选项卡片
+    .option-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 24rpx;
+      padding: 20rpx;
+      margin: 32rpx;
+      box-shadow: 0 4rpx 24rpx rgba(0,0,0,0.06);
+  
+      .option-group {
+        .radio-option, .checkbox-option {
+          position: relative;
+          padding: 28rpx 32rpx;
+          margin-bottom: 24rpx;
+          border-radius: 16rpx;
+          background: #f8fafc;
+          transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+          transform-origin: left center;
+  
+          .option-label {
+            font-size: 32rpx;
+            color: #3b82f6;
+            margin-right: 24rpx;
+            font-weight: 600;
+            transition: color 0.2s ease;
+          }
+  
+          .option-text {
+            font-size: 28rpx;
+            color: #475569;
+            line-height: 1.4;
+            font-weight: 500;
+          }
+  
+          // 选中动画
+          &.selected {
+            animation: optionSelect 0.4s ease;
+            background: #eff6ff;
+            border-left: 6rpx solid #3b82f6;
+            padding-left: 26rpx;
+            box-shadow: 0 4rpx 12rpx rgba(59,130,246,0.1);
+  
+            .option-label {
+              color: #1d4ed8;
+            }
+          }
+  
+          // 点击动画
+          &:active {
+            transform: scale(0.98);
+            background: #f1f5f9;
+          }
+        }
+      }
+    }
+  
+    // 全局动画
+    @keyframes optionSelect {
+      0% { transform: translateX(-12rpx); opacity: 0.9; }
+      50% { transform: translateX(4rpx); }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+  }
+  
+  // 平板适配
+  @media (min-width: 768px) {
+    .psycho-test-container {
+      gap: 48rpx;
+  
+      .question-card {
+        padding: 40rpx 36rpx;
+  
+        .question-content {
+          font-size: 34rpx;
+        }
+      }
+  
+      .option-card {
+        padding: 36rpx;
+  
+        .option-group {
+          .radio-option, .checkbox-option {
+            padding: 32rpx 36rpx;
+          }
+        }
+      }
+    }
+  }
